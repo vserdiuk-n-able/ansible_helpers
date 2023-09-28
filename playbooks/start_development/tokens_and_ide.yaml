@@ -26,4 +26,5 @@
       shell:
         cmd: source ~/.zprofile
     - name: Launch IDE
-      shell: ~/idea-launcher
+      shell:
+        cmd: ~/idea-launcher
