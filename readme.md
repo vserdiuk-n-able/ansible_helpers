@@ -21,7 +21,7 @@ TBD
    ```shell
    $ pipx install --include-deps ansible
    # or minimal package
-   $ pipx install ansible-core
+   # $ pipx install ansible-core
    $ pipx ensurepath
    # additional packages for ansible and PATH propagation
    $ pipx inject --include-apps ansible argcomplete	
@@ -53,3 +53,5 @@ TBD
 - Ansible (self)
 - Anvil
 - AWS CLI
+- pipx
+- argcomplete
