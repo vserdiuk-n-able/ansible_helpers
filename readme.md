@@ -6,7 +6,9 @@ env parts are deleted or switched
 to the defaults.
 
 ## Implementation and design
+
 TBD
+
 ## Setup
 
 1. [Install pipx](https://pypa.github.io/pipx/installation/)
@@ -35,9 +37,17 @@ TBD
 	$ ansible-playbook -i inventory/local_machine.ini --ask-become-pass playbooks/local_ssh/local_ssh.yaml --extra-vars "source=$(pwd)"
 	$ ansible-playbook -i inventory/local_machine.ini playbooks/start_development/tokens_and_ide.yaml
    ```
+
 ## Runnable playbooks
+
 TBD
+
+## Development plan
+
+[Development plan reference](markdown/development_plan.md)
+
 ## Dependencies
+
 - Zsh
 - Brew
 - Ansible (self)
