@@ -1,0 +1,2 @@
+- Create start_development/ initial playbook with core dependencies being installed
+- Create playbook for SSH to VRA and enable feature flag there, to minimize time being used for that routine manually

@@ -16,18 +16,14 @@
     - name: Remove previous Anvil cache. Sometimes that's the reason of errors.
       shell:
         cmd: rm -rf ~/.anvil
-        chdir: "/Users/{{local_user_name}}/"
     - name: Obtain token and store it in the local file
       shell:
-        cmd: echo $(aws codeartifact get-authorization-token --domain n-central --domain-owner 362695845571 --region us-east-1 --query authorizationToken --output text) > .__anvil_token
-        chdir: "/Users/{{local_user_name}}/"
+        cmd: echo $(aws codeartifact get-authorization-token --domain n-central --domain-owner 362695845571 --region us-east-1 --query authorizationToken --output text) > ~/.__anvil_token
     - name: Populate token to the .zprofile (ZSH must be in place)
       shell:
-        cmd: echo "export CODEARTIFACT_AUTH_TOKEN=$(cat .__anvil_token)" >> ~/.zprofile
-        chdir: "/Users/{{local_user_name}}/"
+        cmd: echo "export CODEARTIFACT_AUTH_TOKEN=$(cat ~/.__anvil_token)" >> ~/.zprofile
     - name: Populate token to the environment
       shell:
         cmd: source ~/.zprofile
-        chdir: "/Users/{{local_user_name}}/"
     - name: Launch IDE
-      shell: "/Users/{{local_user_name}}/idea-launcher"
+      shell: ~/idea-launcher
