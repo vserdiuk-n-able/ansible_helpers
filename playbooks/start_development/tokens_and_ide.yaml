@@ -2,9 +2,6 @@
 - name: Start local development
   hosts: local_machine_provisioning
   remote_user: root
-  vars:
-    AWS_PROFILE: nc_dev-developer
-    AWS_REGION: us-east-1
   vars_files:
     - ../../vars/user_config.yaml
   tasks:
