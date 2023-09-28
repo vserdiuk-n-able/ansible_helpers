@@ -20,4 +20,4 @@ How to:
 2. Execute command:
 	# --ask-become-pass can be replaced with -K
 	$ ansible-playbook -i inventory/local_machine.ini --ask-become-pass playbooks/local_ssh/local_ssh.yaml --extra-vars "source=$(pwd)"
-	$ ansible-playbook -i inventory/local_machine.ini playbooks/start_development/tokens_and_ide.yaml --extra-vars "source=$(pwd)"
+	$ ansible-playbook -i inventory/local_machine.ini playbooks/start_development/tokens_and_ide.yaml

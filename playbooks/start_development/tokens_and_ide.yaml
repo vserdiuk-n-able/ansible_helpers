@@ -5,31 +5,29 @@
   vars:
     AWS_PROFILE: nc_dev-developer
     AWS_REGION: us-east-1
-#    ARTIFACTORY_USERNAME: vadym.serdiuk@n-able.com
-#    ARTIFACTORY_PASSWORD: AKCp8pQH5u5ZcYt8HHAyBm4LUizN7LAXgBLhgBJGLAZNUgo31bfD9La3XUP54JuunAF9bPFUq
   vars_files:
-    - /vars/user_config.yaml
+    - ../../vars/user_config.yaml
   tasks:
     - name: Cleanup in ~/.zprofile
       copy:
-        src: "{{source}}/playbooks/start_development/resources/zprofile_copy"
+        src: ./resources/zprofile_copy
         dest: ~/.zprofile
         force: true
     - name: Remove previous Anvil cache. Sometimes that's the reason of errors.
       shell:
         cmd: rm -rf ~/.anvil
-        chdir: /Users/vadym.serdiuk/
+        chdir: "/Users/{{local_user_name}}/"
     - name: Obtain token and store it in the local file
       shell:
         cmd: echo $(aws codeartifact get-authorization-token --domain n-central --domain-owner 362695845571 --region us-east-1 --query authorizationToken --output text) > .__anvil_token
-        chdir: /Users/vadym.serdiuk/
+        chdir: "/Users/{{local_user_name}}/"
     - name: Populate token to the .zprofile (ZSH must be in place)
       shell:
         cmd: echo "export CODEARTIFACT_AUTH_TOKEN=$(cat .__anvil_token)" >> ~/.zprofile
-        chdir: /Users/vadym.serdiuk/
+        chdir: "/Users/{{local_user_name}}/"
     - name: Populate token to the environment
       shell:
         cmd: source ~/.zprofile
-        chdir: /Users/vadym.serdiuk/
+        chdir: "/Users/{{local_user_name}}/"
     - name: Launch IDE
-      shell: /Users/vadym.serdiuk/idea-launcher
+      shell: "/Users/{{local_user_name}}/idea-launcher"
