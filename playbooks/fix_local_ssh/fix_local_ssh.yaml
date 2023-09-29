@@ -7,7 +7,7 @@
   tasks:
           - name: Ensure SSH configuration is in desired state
             copy:
-              src: "{{source}}/playbooks/local_ssh/resources/ssh_config"
+              src: "{{source}}/playbooks/fix_local_ssh/resources/ssh_config"
               dest: /private/etc/ssh/ssh_config
               owner: root
               group: wheel
