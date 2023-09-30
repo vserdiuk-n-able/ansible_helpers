@@ -82,3 +82,6 @@ vars/*
 !vars/user_config__default.yaml
 playbooks/start_development/resources/**
 !playbooks/start_development/resources/zprofile_copy__default
+inventory/**
+!inventory/local_machine.ini
+!inventory/remotes_example.ini

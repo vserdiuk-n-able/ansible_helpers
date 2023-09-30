@@ -1,0 +1,19 @@
+---
+- name: Copy ssh certificates to the ssh folder
+  hosts: local_machine_provisioning
+  remote_user: root
+  tasks:
+    - name: Copy SSH certificates to the SSH config folder
+      copy:
+        src: ../resources/id_rsa.devBox
+        dest: ~/.ssh/id_rsa.devBox
+        mode: '400'
+        backup: no
+    - name: Copy SSH certificates to the SSH config folder
+      copy:
+        src: ../resources/id_rsa.devBox.pub
+        dest: ~/.ssh/id_rsa
+        mode: '400'
+        backup: no
+    - name: Avoiding of entering passphrase every time
+      shell: ssh-add ~/.ssh/id_rsa.devBox &>/dev/null

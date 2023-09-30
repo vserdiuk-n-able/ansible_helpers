@@ -1,16 +1,5 @@
 ---
-- name: Update local SSH configuration
+- name: SSH setup
   hosts: local_machine_provisioning
-  remote_user: root
-  become: yes
-  become_user: root
-  tasks:
-          - name: Ensure SSH configuration is in desired state
-            copy:
-              src: "{{source}}/playbooks/fix_local_ssh/resources/ssh_config"
-              dest: /private/etc/ssh/ssh_config
-              owner: root
-              group: wheel
-              mode: '0644'
-              backup: yes
-# TODO: add additional file manipulation
+- import_playbook: plays/copy_ssh_certificates.yaml
+- import_playbook: plays/ssh_config.yaml
