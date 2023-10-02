@@ -55,3 +55,4 @@ TBD
 - AWS CLI
 - pipx
 - argcomplete
+- Intellij Idea (or flavour)

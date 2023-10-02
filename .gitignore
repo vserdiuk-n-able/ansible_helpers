@@ -85,3 +85,4 @@ playbooks/start_development/resources/**
 inventory/**
 !inventory/local_machine.ini
 !inventory/remotes_example.ini
+!inventory/readme.md
