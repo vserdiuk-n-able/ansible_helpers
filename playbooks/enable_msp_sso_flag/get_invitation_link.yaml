@@ -1,0 +1,10 @@
+---
+- name: Get MSP SSO logs
+  hosts: remote_vra
+  become: yes
+  become_user: root
+  tasks:
+    - name: Get logs
+      shell: cat /var/log/n-central/*sso.log
+      register: vra_logs
+    - debug: msg="{{vra_logs.stdout}}"
