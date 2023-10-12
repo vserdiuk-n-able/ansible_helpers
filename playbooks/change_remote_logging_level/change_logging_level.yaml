@@ -1,5 +1,5 @@
 ---
-- name: Change remote N-central logging level
+- name: Change remote N-central logging level for specific package
   hosts: remote_vra
   become: yes
   become_user: root
