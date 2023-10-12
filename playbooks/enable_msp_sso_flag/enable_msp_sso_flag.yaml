@@ -11,4 +11,4 @@
     - name: Enable MSP SSO flag in config file
       shell:
         chdir: /home/nable/
-        cmd: sed -i 's/"msp_sso":false/"msp_sso":true/g' flag_default.json
+        cmd: "sed -i 's/\"msp_sso\": false/\"msp_sso\": true/g' flag_default.json"
