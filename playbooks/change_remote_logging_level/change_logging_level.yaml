@@ -1,0 +1,10 @@
+---
+- name: Change remote N-central logging level
+  hosts: remote_vra
+  become: yes
+  become_user: root
+  tasks:
+    - name: Replace debug level for given package name
+      shell:
+        chdir: /opt/nable/webapps/ROOT/WEB-INF/classes/
+        cmd: 'sed -i -E ''s#({{ package_to_replace }}=)(\w+,)(.+)#\1{{ debug_level }},\3#'' log4j.properties'
