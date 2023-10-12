@@ -9,7 +9,7 @@ to the defaults.
 
 TBD
 
-## Setup
+## Setup (macOS)
 
 1. [Install pipx](https://pypa.github.io/pipx/installation/)
    ```shell
