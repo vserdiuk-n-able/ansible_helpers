@@ -1,7 +1,6 @@
 ---
 - name: Start local development
   hosts: local_machine_provisioning
-  remote_user: root
   vars_files:
     - ../../vars/user_config.yaml
   tasks:
