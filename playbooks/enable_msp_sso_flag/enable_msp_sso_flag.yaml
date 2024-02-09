@@ -12,3 +12,16 @@
       shell:
         chdir: /home/nable/
         cmd: "sed -i 's/\"msp_sso\": false/\"msp_sso\": true/g' flag_default.json"
+      when: 0 > 1 # temporary or permanently disabled old task because of changed structure of flag_default.json
+    - name: Reserve file copy
+      shell:
+        chdir: /home/nable/
+        cmd: "cp flag_default.json flag_default_copy.json"
+    - name: Enable MSP SSO flag in config file and save it to the temporary file
+      shell:
+        chdir: /home/nable/
+        cmd: "jq '.flags.msp_sso.fallthrough.variation=0' flag_default.json > tmp"
+    - name: Move temporary file to flag_default.json
+      shell:
+        chdir: /home/nable/
+        cmd: "mv tmp flag_default.json"

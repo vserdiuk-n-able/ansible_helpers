@@ -1,0 +1,18 @@
+---
+- name: Enable MSP SSO flag
+  hosts: remote_vra
+  become: yes
+  become_user: root
+  tasks:
+    - name: Reserve file copy
+      shell:
+        chdir: /home/nable/
+        cmd: "cp flag_default.json flag_default_copy.json"
+    - name: Enable MSP SSO flag in config file and save it to the temporary file
+      shell:
+        chdir: /home/nable/
+        cmd: "jq '.flags.entra.fallthrough.variation=0' flag_default.json > tmp"
+    - name: Move temporary file to flag_default.json
+      shell:
+        chdir: /home/nable/
+        cmd: "mv tmp flag_default.json"
