@@ -1,5 +1,5 @@
 ---
-- name: Enable MSP SSO flag
+- name: Enable Entra flag
   hosts: remote_vra
   become: yes
   become_user: root
