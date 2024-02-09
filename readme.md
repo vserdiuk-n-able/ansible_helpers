@@ -44,6 +44,7 @@ TBD
 2. [Fix local SSH setup](playbooks/fix_local_ssh/readme.md)
 3. [Start local development (codeartifact auth token and IDE)](playbooks/start_development/readme.md)
 3. [Enable MSP SSO flag and check the invitation URL](playbooks/enable_msp_sso_flag/readme.md)
+3. [Enable Entra flag](playbooks/enable_msp_sso_flag/readme.md)
 
 ## Development plan
 
