@@ -1,0 +1,5 @@
+---
+- name: Enable Entra and MSP SSO flags
+  hosts: remote_vra
+- import_playbook: enable_msp_sso_flag.yaml
+- import_playbook: enable_entra_flag.yaml
