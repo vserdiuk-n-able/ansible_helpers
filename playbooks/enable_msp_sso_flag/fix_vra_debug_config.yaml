@@ -1,0 +1,20 @@
+---
+- name: Fix VRA debug configuration of N-Central
+  hosts: remote_vra
+  become: yes
+  become_user: root
+  tasks:
+    - name: Create a flag file
+      shell:
+        cmd: touch /tmp/jetty_debug
+    - name: Reserve config file copy
+      shell:
+        chdir: /etc/default/
+        cmd: "cp jetty jetty_copy"
+    - name: Fix config file
+      shell:
+        chdir: /etc/default/
+        cmd: 'sed -i "84s/address=8000/address=*:8000/" jetty'
+    - name: Jetty service restart
+      shell:
+        cmd: "systemctl restart jetty"
