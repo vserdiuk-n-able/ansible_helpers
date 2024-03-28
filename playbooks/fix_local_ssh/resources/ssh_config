@@ -67,3 +67,12 @@ Host 10.220.*.* *.vra.n-central.dev
     UserKnownHostsFile=/dev/null
     User admin
     IdentityFile ~/.ssh/id_rsa.devBox
+
+Host 10.120.*.* *.vra.n-central.dev
+    StrictHostKeyChecking no
+    GSSAPIAuthentication=no
+    ForwardAgent=yes
+    ServerAliveInterval 120
+    UserKnownHostsFile=/dev/null
+    User admin
+    IdentityFile ~/.ssh/id_rsa.devBox
