@@ -1,0 +1,28 @@
+---
+- name: Validate SpiceDB schema file
+  hosts: local_machine_provisioning
+  tasks:
+    - name: Install Zed if not present locally
+      community.general.homebrew:
+        name: "authzed/tap/spicedb"
+        state: present
+    - name: Check the spicedb_validation folder is present
+      ansible.builtin.stat:
+        path: "{{source}}/spicedb_validation"
+      register: st
+    - name: Create a folder and copy default resources there
+      when: st.stat.isdir is not defined or st.stat.isdir is defined and st.stat.isdir == false
+      shell: |
+        cd "{{source}}"
+        mkdir spicedb_validation
+        cp -R resources/. spicedb_validation
+        cd spicedb_validation
+    - name: Validate SpiceDB schema file at the provided location
+      shell: |
+        cd "{{source}}/spicedb_validation"
+        zed validate '{{schema_file_name | default("schema-validate.yaml")}}'
+    - name: Cleanup if not specified otherwise
+      shell:
+        chdir: "{{source}}"
+        cmd: rm -rf spicedb_validation
+      when: remove_schema is defined and remove_schema == "true"

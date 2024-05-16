@@ -1,0 +1,20 @@
+---
+- name: Fetch SpiceDB schema from the repo with cleanup before
+  hosts: local_machine_provisioning
+  tasks:
+    - name: Cleanup before clone
+      shell:
+        chdir: "{{source}}"
+        cmd: rm -rf spicedb_validation
+    - name: Create a temporary folder
+      shell:
+        chdir: "{{source}}"
+        cmd: mkdir -p spicedb_validation
+    - name: Fetch the file from the repo to the current working directory
+      git:
+        repo: "https://github.com/logicnow/msp-central-authz-schema"
+        dest: "{{source}}/spicedb_validation"
+    - name: Remove everything except SpiceDB schema file
+      shell:
+        chdir: "{{source}}/spicedb_validation"
+        cmd: "find . ! -name {{schema_file_name | default('schema-validate')}}.yaml -delete"

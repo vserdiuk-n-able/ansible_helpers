@@ -1,0 +1,5 @@
+---
+- name: Fetch and validate SpiceDB schema file
+  hosts: local_machine_provisioning
+- import_playbook: plays/fetch_schema_from_the_repo.yaml
+- import_playbook: plays/validate_schema_file.yaml

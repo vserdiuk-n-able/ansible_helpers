@@ -43,8 +43,9 @@ TBD
 1. [Change remote N-Central VRA logging level](playbooks/change_remote_logging_level/readme.md)
 2. [Fix local SSH setup](playbooks/fix_local_ssh/readme.md)
 3. [Start local development (codeartifact auth token and IDE)](playbooks/start_development/readme.md)
-3. [Enable MSP SSO flag and check the invitation URL](playbooks/enable_msp_sso_flag/readme.md)
-3. [Enable Entra flag](playbooks/enable_msp_sso_flag/readme.md)
+4. [Enable MSP SSO flag and check the invitation URL](playbooks/enable_msp_sso_flag/readme.md)
+5. [Enable Entra flag](playbooks/enable_msp_sso_flag/readme.md)
+6. [Validate SpiceDB schema](playbooks/spicedb/readme.md)
 
 ## Development plan
 
